@@ -67,6 +67,24 @@ app.put("/greetings/:id", (req, res) => {
 });
 
 /**
+ * Deleted a greeting message
+ */
+app.delete("/greetings/:id", (req, res) => {
+  const message = greetingMsgs.find(
+    (greeting) => greeting.id === parseInt(req.params.id)
+  );
+  if (!message)
+    return res.status(404).send("The greeting with the given ID was not found");
+
+  // Delete
+  const index = greetingMsgs.indexOf(message);
+  greetingMsgs.splice(index, 1);
+
+  // Return the same message
+  res.send(message);
+});
+
+/**
  * Using a port if defined in the system env else using 3000
    And listening to it respectively 
  */
