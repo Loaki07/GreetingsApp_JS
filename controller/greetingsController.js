@@ -44,6 +44,29 @@ app.post("/greetings", (req, res) => {
 });
 
 /**
+ * Update existing greeting message
+ */
+app.put("/greetings/:id", (req, res) => {
+  // Looking for the greeting
+  // If not found, returns 404 - Not Found
+  const message = greetingMsgs.find(
+    (greeting) => greeting.id === parseInt(req.params.id)
+  );
+  if (!message)
+    return res.status(404).send("The greeting with the given ID was not found");
+
+  // Validate the greeting to be updated
+  // If invalid, returns 400 - Bad request
+  const { error } = validateMsg(req.body);
+  // 400 Bad Request
+  if (error) return res.status(400).send(error.details[0].message);
+
+  // Update the greeting
+  message.greeting = req.body.greeting;
+  res.send(message);
+});
+
+/**
  * Using a port if defined in the system env else using 3000
    And listening to it respectively 
  */
