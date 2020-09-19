@@ -8,3 +8,4 @@ Packages Used:
 2. Express to implement HTTP server
 3. Joi for input validation
 4. Body-Parser to parse req.body to Json Object
+5. Express Router for handling routes
