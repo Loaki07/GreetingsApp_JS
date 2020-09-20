@@ -6,7 +6,7 @@ const greetingMsgs = [
   { id: 3, greeting: "Testing Messages ..." },
 ];
 
-class Greeting {
+class GreetingController {
   /**
    * Display the all the messages in /greetings
    */
@@ -84,4 +84,4 @@ class Greeting {
   };
 }
 
-module.exports = Greeting;
+module.exports = GreetingController;
