@@ -2,7 +2,7 @@
   "name": "GreetingsApp_JS",
   "version": "1.0.0",
   "description": "Greetings App implementing simple frond end and backend methods",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
